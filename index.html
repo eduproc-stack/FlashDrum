@@ -1,127 +1,686 @@
-<!DOCTYPE html>
-<html lang="sv">
+﻿<!DOCTYPE html>
+<!-- saved from url=(0013)about:internet -->
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EduProc Pump Curve</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="shell">
-    <header class="hero">
-      <div>
-        <p class="eyebrow">GitHub Pages-ready</p>
-        <h1>Pumpkurva och driftpunkt</h1>
-        <p class="lede">En moderniserad, statisk webbapp baserad på beräkningslogiken i Excel-modellen <em>EduProcPumpCurve_and_Pressure_DropV1.xlsx</em>.</p>
-      </div>
-      <div class="hero-badge">
-        <span>Ingen server krävs</span>
-        <strong>HTML + CSS + JS</strong>
-      </div>
-    </header>
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<meta name='GENERATOR' content='SpreadsheetConverter  version 7.3.5769.0)' />
 
-    <main class="layout">
-      <section class="card controls">
-        <div class="card-head">
-          <h2>Indata</h2>
-          <button id="resetBtn" class="ghost">Återställ exempelvärden</button>
+<!-- The parts of this webpage that is defined by the original spreadsheet have the same copyright as the original spreadsheet. -->
+<!-- The generic Excel-related parts of this page is Copyright © 2002-2013 Framtidsforum I&M AB, Sweden. -->
+
+        <title>Eduproc_Flash_versus_Column</title>
+        <link rel="stylesheet" href="assets/app.min.css" />
+        <script type="text/javascript" src="assets/app.min.js"></script>
+        <script type="text/javascript">
+        $(function(){
+            var calendar_dateFormats = {};
+            var defaultDateFmt = 'yy-mm-dd';
+            postcode();
+            var tabsDiv = $('#tab');
+            tabsDiv.tabs();
+			$('#slider_xlew_1_18_15').slider({
+            orientation:'horizontal',
+            min:0,
+            max:12,
+            step:1,
+            value:4, 
+            slide:function(event, ui){
+                $('#xlew_1_18_15').val(ui.value);
+                $(this).find('a').attr('title', 'slider value='+ui.value);
+                recalc_onclick('xlew_1_18_15');
+            },
+			create:function(event,ui){
+				$(this).find('.ui-slider-handle').unbind('keydown');
+			}
+            });
+            $('#xlew_1_18_15').val(4);
+		    $('#slider_xlew_1_18_15').find('a').attr({
+                'title': 'slider value='+$('#slider_xlew_1_18_15').slider('option','value'),
+                'data-sheet': '1',
+                'data-row': '18',
+                'data-col': '15',
+                'tabindex': '1'
+            });
+			$('#slider_xlew_1_19_15').slider({
+            orientation:'horizontal',
+            min:2,
+            max:6,
+            step:1,
+            value:2, 
+            slide:function(event, ui){
+                $('#xlew_1_19_15').val(ui.value);
+                $(this).find('a').attr('title', 'slider value='+ui.value);
+                recalc_onclick('xlew_1_19_15');
+            },
+			create:function(event,ui){
+				$(this).find('.ui-slider-handle').unbind('keydown');
+			}
+            });
+            $('#xlew_1_19_15').val(2);
+		    $('#slider_xlew_1_19_15').find('a').attr({
+                'title': 'slider value='+$('#slider_xlew_1_19_15').slider('option','value'),
+                'data-sheet': '1',
+                'data-row': '19',
+                'data-col': '15',
+                'tabindex': '2'
+            });
+
+			$('.tlb-btn.toolbarBluebtn.reset').click(function(){{resetClick();}})
+
+            $('input:not(":hidden,:button,[readonly=readonly],:disabled"),select,a.ui-slider-handle,textarea,a.ui-state-active').filter(':first').focus();
+        });
+        </script>
+		<link rel='stylesheet' type='text/css' href='' media='print' id='printallcss' />
+    </head>
+    <body onload='LoadFromQueryString();GetCookies();recalc_onclick("");' onunload='SetCookies();'>
+        <noscript style='color:#F15623;'>
+            The webpage is not working since JavaScript is not enabled. 
+            Most likely, you are viewing using Dropbox website or another limited browser environment.
+        </noscript>
+
+        <form id='formc' name='formc' method='post' action='' target='_top'>
+		    <input type='hidden' id='xl_spreadsheet' name='xl_spreadsheet' value='Eduproc_Flash_versus_Column' />
+            <input type='hidden' id='xl_client' name='xl_client' value='x7.3.5769.0' />
+			<div id='tab'>
+                 <div id='sheet-1' style='padding: 1em 1.4em;'>
+                    <table width= '1487' cellspacing='0' cellpadding='0' style='border-spacing:0;' onkeydown='javascript:navigate(event);'>
+					<col width='111'/>
+					<col width='93'/>
+					<col width='28'/>
+					<col width='47'/>
+					<col width='25'/>
+					<col width='25'/>
+					<col width='281'/>
+					<col width='86'/>
+					<col width='219'/>
+					<col width='47'/>
+					<col width='64'/>
+					<col width='64'/>
+					<col width='64'/>
+					<col width='64'/>
+					<col width='205'/>
+					<col width='64'/>
+                    <tr style='height:26pt'>
+						<td class='ee100' style='height:26pt;' colspan = '2'>
+							EduProc <font class='ee103'>V1</font>
+						</td>
+						<td class='ee107' style='height:26pt;'>&nbsp;</td>
+						<td class='ee110' style='height:26pt;' colspan = '6'>
+							Comparison
+  - Flash drum versus distillation column
+						</td>
+						<td class='ee107' style='height:26pt;'>&nbsp;</td>
+						<td class='ee107' style='height:26pt;'>&nbsp;</td>
+						<td class='ee107' style='height:26pt;'>&nbsp;</td>
+						<td class='ee107' style='height:26pt;'>&nbsp;</td>
+						<td class='ee107' style='height:26pt;'>&nbsp;</td>
+						<td class='ee107' style='height:26pt;'>&nbsp;</td>
+						<td class='ee107' style='height:26pt;'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee113' style='height:15pt;'>
+							<a href='http://www.eduproc.net/' target='_parent' style='color:blue;'>Back to start</a>
+						</td>
+						<td class='ee107' style='height:15pt;' colspan = '15'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee107' style='height:15pt;' colspan = '16'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_4_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_4_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_4_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_4_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_4_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_4_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '9'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_5_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_5_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_5_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_5_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_5_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_5_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							Stream
+						</td>
+						<td class='ee126' style='height:20pt;'>&nbsp;</td>
+						<td class='ee126' style='height:20pt;'>
+							Feed
+						</td>
+						<td class='ee126' style='height:20pt;'>
+							Top
+						</td>
+						<td class='ee126' style='height:20pt;'>
+							Bottom
+						</td>
+						<td class='ee126' style='height:20pt;'>
+							Reflux
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_6_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_6_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_6_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_6_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_6_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_6_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							Denotation
+						</td>
+						<td class='ee126' style='height:20pt;'>&nbsp;</td>
+						<td class='ee126' style='height:20pt;'>
+							F
+						</td>
+						<td class='ee126' style='height:20pt;'>
+							D
+						</td>
+						<td class='ee126' style='height:20pt;'>
+							B
+						</td>
+						<td class='ee126' style='height:20pt;'>
+							L
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_7_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_7_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_7_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_7_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_7_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_7_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							Flow (Kmol/h)
+						</td>
+						<td class='ee126' style='height:20pt;'>&nbsp;</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_7_11' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_7_11' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_7_12' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_7_12' tabindex='-1' />
+						</td>
+						<td class='ee131' style='height:20pt;'>
+							8
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_7_14' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_7_14' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_8_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_8_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_8_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_8_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_8_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_8_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							Composition (mol fraction)
+						</td>
+						<td class='ee126' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_9_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_9_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_9_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_9_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_9_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_9_7' tabindex='-1' />
+						</td>
+						<td class='ee132' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							<span>   
+  </span>Water
+						</td>
+						<td class='ee126' style='height:20pt;'>&nbsp;</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_9_11' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_9_11' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_9_12' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_9_12' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_9_13' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_9_13' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_9_14' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_9_14' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_10_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_10_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_10_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_10_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_10_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_10_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							<span>   
+  </span>n-Octane
+						</td>
+						<td class='ee126' style='height:20pt;'>&nbsp;</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_10_11' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_10_11' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_10_12' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_10_12' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_10_13' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_10_13' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_10_14' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_10_14' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee133' style='height:20pt;'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_11_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_11_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_11_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_11_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_11_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_11_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							<span>   
+  </span>n-Nonane
+						</td>
+						<td class='ee126' style='height:20pt;'>&nbsp;</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_11_11' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_11_11' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_11_12' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_11_12' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_11_13' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_11_13' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_11_14' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_11_14' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee133' style='height:20pt;'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_12_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_12_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_12_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_12_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_12_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_12_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							<span>   
+  </span>n-Decane
+						</td>
+						<td class='ee126' style='height:20pt;'>&nbsp;</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_12_11' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_12_11' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_12_12' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_12_12' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_12_13' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_12_13' tabindex='-1' />
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_12_14' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_12_14' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_13_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_13_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_13_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_13_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_13_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_13_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee134' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_14_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_14_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_14_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_14_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_14_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_14_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							Reflux ratio (L/D)
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_14_10' type='text' readonly='readonly' value='' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_14_10' tabindex='-1' />
+						</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee116' style='height:20pt;'>
+						<input id='xlew_1_15_3' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_15_3' tabindex='-1' />
+						</td>
+						<td class='ee117' style='height:20pt;'>
+						<input id='xlew_1_15_4' type='text' readonly='readonly' value='' class='ee117' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_15_4' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_15_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_15_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee123' style='height:20pt;'>
+							No of stages
+						</td>
+						<td class='ee129' style='height:20pt;'>
+						<input id='xlew_1_15_10' type='text' readonly='readonly' value='0' class='ee129' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_15_10' tabindex='-1' />
+						</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee131' style='height:20pt;'>&nbsp;</td>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee135' style='height:20pt;'>&nbsp;</td>
+						<td class='ee137' style='height:20pt;'>&nbsp;</td>
+						<td class='ee138' style='height:20pt;'>&nbsp;</td>
+						<td class='ee107' style='height:20pt;'>&nbsp;</td>
+						<td class='ee120' style='height:20pt;'>
+						<input id='xlew_1_16_7' type='text' readonly='readonly' value='' class='ee120' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_16_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '9'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee107' style='height:15pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee139' style='height:15pt;'>&nbsp;</td>
+						<td class='ee140' style='height:15pt;'>&nbsp;</td>
+						<td class='ee141' style='height:15pt;'>&nbsp;</td>
+						<td class='ee107' style='height:15pt;' colspan = '11'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee107' style='height:15pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee139' style='height:15pt;'>&nbsp;</td>
+						<td class='ee140' style='height:15pt;'>&nbsp;</td>
+						<td class='ee141' style='height:15pt;'>&nbsp;</td>
+						<td class='ee107' style='height:15pt;' colspan = '6'>&nbsp;</td>
+						<td class='ee133' style='height:15pt;' colspan = '2'>
+							No of stages
+						</td>
+						<td class='ee116' style='height:15pt;'>
+						<input id='xlew_1_18_14' type='text' readonly='readonly' value='0' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_18_14' tabindex='-1' />
+						</td>
+						<td class='ee116' style='height:15pt;'>
+							<div id='slider_xlew_1_18_15' class='no-print'></div>
+							<input id='xlew_1_18_15' name='xlew_1_18_15' type='text' onchange="this.value=eedisplayFloat(eeparseFloat(this.value));recalc_onclick('xlew_1_18_15') " class='yes-print' style='display:none' data-widgettype='slider' ></input>
+						</td>
+						<td class='ee107' style='height:15pt;'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:21pt'>
+						<td class='ee107' style='height:21pt;'>&nbsp;</td>
+						<td class='ee142' style='height:21pt;'>
+							F<span>  </span>──────&gt;<span> </span>
+						</td>
+						<td class='ee139' style='height:21pt;'>&nbsp;</td>
+						<td class='ee140' style='height:21pt;'>&nbsp;</td>
+						<td class='ee141' style='height:21pt;'>&nbsp;</td>
+						<td class='ee107' style='height:21pt;'>&nbsp;</td>
+						<td class='ee143' style='height:21pt;'>
+						<input id='xlew_1_19_7' type='text' readonly='readonly' value='' class='ee143' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_19_7' tabindex='-1' />
+						</td>
+						<td class='ee107' style='height:21pt;' colspan = '4'>&nbsp;</td>
+						<td class='ee133' style='height:21pt;' colspan = '2'>
+							<span> </span>Reflux ratio
+						</td>
+						<td class='ee116' style='height:21pt;'>
+						<input id='xlew_1_19_14' type='text' readonly='readonly' value='' class='ee116' style='overflow:hidden; border:0px solid #000000; width:100% ' name='xlew_1_19_14' tabindex='-1' />
+						</td>
+						<td class='ee116' style='height:21pt;'>
+							<div id='slider_xlew_1_19_15' class='no-print'></div>
+							<input id='xlew_1_19_15' name='xlew_1_19_15' type='text' onchange="this.value=eedisplayFloatV(eeparseFloatV(this.value));recalc_onclick('xlew_1_19_15') " class='yes-print' style='display:none' data-widgettype='slider' ></input>
+						</td>
+						<td class='ee107' style='height:21pt;'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee107' style='height:15pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee139' style='height:15pt;'>&nbsp;</td>
+						<td class='ee140' style='height:15pt;'>&nbsp;</td>
+						<td class='ee141' style='height:15pt;'>&nbsp;</td>
+						<td class='ee107' style='height:15pt;' colspan = '11'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee107' style='height:15pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee139' style='height:15pt;'>&nbsp;</td>
+						<td class='ee140' style='height:15pt;'>&nbsp;</td>
+						<td class='ee141' style='height:15pt;'>&nbsp;</td>
+						<td class='ee107' style='height:15pt;' colspan = '11'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee107' style='height:15pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee139' style='height:15pt;'>&nbsp;</td>
+						<td class='ee140' style='height:15pt;'>&nbsp;</td>
+						<td class='ee141' style='height:15pt;'>&nbsp;</td>
+						<td class='ee107' style='height:15pt;' colspan = '11'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee107' style='height:15pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee139' style='height:15pt;'>&nbsp;</td>
+						<td class='ee146' style='height:15pt;'>
+							Q
+						</td>
+						<td class='ee141' style='height:15pt;'>&nbsp;</td>
+						<td class='ee107' style='height:15pt;' colspan = '11'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:20pt'>
+						<td class='ee107' style='height:20pt;' colspan = '2'>&nbsp;</td>
+						<td class='ee148' style='height:20pt;'>&nbsp;</td>
+						<td class='ee149' style='height:20pt;'>&nbsp;</td>
+						<td class='ee150' style='height:20pt;'>&nbsp;</td>
+						<td class='ee151' style='height:20pt;' colspan = '2'>
+							<span> </span>────────&gt;<span> 
+  </span>B
+						</td>
+						<td class='ee107' style='height:20pt;' colspan = '9'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:16pt'>
+						<td class='ee107' style='height:16pt;' colspan = '3'>&nbsp;</td>
+						<td class='ee132' style='height:16pt;'>&nbsp;</td>
+						<td class='ee107' style='height:16pt;' colspan = '12'>&nbsp;</td>
+                    </tr>
+                    <tr style='height:15pt'>
+						<td class='ee154' style='height:15pt;' colspan = '3'>
+							KTH
+  - Course KE 2185 - Separation Processes
+						</td>
+						<td class='ee107' style='height:15pt;' colspan = '13'>&nbsp;</td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </form>
+        <div class='toolbar no-print'>
+			<a class='poweredby-logo' href='http://www.spreadsheetconverter.com/excel-html-web.htm' target='_blank' tabindex='-1'>
+				<img src='powered-by-spreadsheetconverter.png' title='Convert Excel spreadsheet to online form' alt='Convert Excel spreadsheet to online form'/> 
+			</a>
+            <div class='tlb-elm toolpanel'>
+                <button class='tlb-btn toolbarBluebtn reset' style='margin-left:3px'>Reset</button>
+            </div>
+
         </div>
+    </body>
+    <script type="text/javascript">
+function resetClick(){
+            document.formc.reset();
+            postcode();
+            resetSlider('xlew_1_18_15','slider_xlew_1_18_15', 4);			
+			resetSlider('xlew_1_19_15','slider_xlew_1_19_15', 2);             
+            LoadFromQueryString();
+            recalc_onclick('');
+        }
 
-        <label class="field">
-          <span>Statisk höjd</span>
-          <div class="input-wrap">
-            <input id="staticHeight" type="range" min="0" max="60" step="1" value="25">
-            <input id="staticHeightNumber" type="number" min="0" max="60" step="1" value="25">
-            <span class="unit">mVP</span>
-          </div>
-        </label>
 
-        <label class="field">
-          <span>Utloppsdiameter</span>
-          <div class="input-wrap">
-            <input id="pipeDiameter" type="range" min="50" max="125" step="1" value="85">
-            <input id="pipeDiameterNumber" type="number" min="50" max="125" step="1" value="85">
-            <span class="unit">mm</span>
-          </div>
-        </label>
+var co = new Object;
+function recalc_onclick(ctl) {
+  if (true) {
 
-        <label class="field">
-          <span>Pumphjulsdiameter</span>
-          <div class="input-wrap">
-            <input id="wheelDiameter" type="range" min="165" max="215" step="1" value="200">
-            <input id="wheelDiameterNumber" type="number" min="165" max="215" step="1" value="200">
-            <span class="unit">mm</span>
-          </div>
-        </label>
 
-        <label class="field">
-          <span>Verkningsgrad för effektberäkning</span>
-          <div class="input-wrap compact">
-            <input id="efficiency" type="number" min="1" max="100" step="1" value="60">
-            <span class="unit">%</span>
-          </div>
-        </label>
+co['xlew_1_18_15']=eeparseFloat(document.getElementById('xlew_1_18_15').value);co['xlew_1_19_15']=eeparseFloatV(document.getElementById('xlew_1_19_15').value);calc(co);document.getElementById('xlew_1_4_3').value=eeisnumber(co['xlew_1_4_3'])?eedisplayFloat(co['xlew_1_4_3']):co['xlew_1_4_3'];document.getElementById('xlew_1_4_4').value=co['xlew_1_4_4'];document.getElementById('xlew_1_4_7').value=co['xlew_1_4_7'];document.getElementById('xlew_1_5_3').value=eeisnumber(co['xlew_1_5_3'])?eedisplayFloat(co['xlew_1_5_3']):co['xlew_1_5_3'];document.getElementById('xlew_1_5_4').value=co['xlew_1_5_4'];document.getElementById('xlew_1_5_7').value=co['xlew_1_5_7'];document.getElementById('xlew_1_6_3').value=eeisnumber(co['xlew_1_6_3'])?eedisplayFloat(co['xlew_1_6_3']):co['xlew_1_6_3'];document.getElementById('xlew_1_6_4').value=co['xlew_1_6_4'];document.getElementById('xlew_1_6_7').value=co['xlew_1_6_7'];document.getElementById('xlew_1_7_3').value=eeisnumber(co['xlew_1_7_3'])?eedisplayFloat(co['xlew_1_7_3']):co['xlew_1_7_3'];document.getElementById('xlew_1_7_4').value=co['xlew_1_7_4'];document.getElementById('xlew_1_7_7').value=co['xlew_1_7_7'];document.getElementById('xlew_1_7_11').value=eedisplayFloat(co['xlew_1_7_11']);document.getElementById('xlew_1_7_12').value=eedisplayFloat(co['xlew_1_7_12']);document.getElementById('xlew_1_7_14').value=eedisplayFloat(co['xlew_1_7_14']);document.getElementById('xlew_1_8_3').value=eeisnumber(co['xlew_1_8_3'])?eedisplayFloat(co['xlew_1_8_3']):co['xlew_1_8_3'];
+document.getElementById('xlew_1_8_4').value=co['xlew_1_8_4'];document.getElementById('xlew_1_8_7').value=co['xlew_1_8_7'];document.getElementById('xlew_1_9_3').value=eeisnumber(co['xlew_1_9_3'])?eedisplayFloat(co['xlew_1_9_3']):co['xlew_1_9_3'];document.getElementById('xlew_1_9_4').value=co['xlew_1_9_4'];document.getElementById('xlew_1_9_7').value=co['xlew_1_9_7'];document.getElementById('xlew_1_9_11').value=eedisplayFloatND(co['xlew_1_9_11'],3);document.getElementById('xlew_1_9_12').value=eedisplayFloatND(co['xlew_1_9_12'],3);document.getElementById('xlew_1_9_13').value=eedisplayFloatND(co['xlew_1_9_13'],3);document.getElementById('xlew_1_9_14').value=eedisplayFloatND(co['xlew_1_9_14'],3);document.getElementById('xlew_1_10_3').value=eeisnumber(co['xlew_1_10_3'])?eedisplayFloat(co['xlew_1_10_3']):co['xlew_1_10_3'];document.getElementById('xlew_1_10_4').value=co['xlew_1_10_4'];document.getElementById('xlew_1_10_7').value=co['xlew_1_10_7'];document.getElementById('xlew_1_10_11').value=eedisplayFloatND(co['xlew_1_10_11'],3);document.getElementById('xlew_1_10_12').value=eedisplayFloatND(co['xlew_1_10_12'],3);document.getElementById('xlew_1_10_13').value=eedisplayFloatND(co['xlew_1_10_13'],3);document.getElementById('xlew_1_10_14').value=eedisplayFloatND(co['xlew_1_10_14'],3);document.getElementById('xlew_1_11_3').value=eeisnumber(co['xlew_1_11_3'])?eedisplayFloat(co['xlew_1_11_3']):co['xlew_1_11_3'];document.getElementById('xlew_1_11_4').value=co['xlew_1_11_4'];document.getElementById('xlew_1_11_7').value=co['xlew_1_11_7'];
+document.getElementById('xlew_1_11_11').value=eedisplayFloatND(co['xlew_1_11_11'],3);document.getElementById('xlew_1_11_12').value=eedisplayFloatND(co['xlew_1_11_12'],3);document.getElementById('xlew_1_11_13').value=eedisplayFloatND(co['xlew_1_11_13'],3);document.getElementById('xlew_1_11_14').value=eedisplayFloatND(co['xlew_1_11_14'],3);document.getElementById('xlew_1_12_3').value=eeisnumber(co['xlew_1_12_3'])?eedisplayFloat(co['xlew_1_12_3']):co['xlew_1_12_3'];document.getElementById('xlew_1_12_4').value=co['xlew_1_12_4'];document.getElementById('xlew_1_12_7').value=co['xlew_1_12_7'];document.getElementById('xlew_1_12_11').value=eedisplayFloatND(co['xlew_1_12_11'],3);document.getElementById('xlew_1_12_12').value=eedisplayFloatND(co['xlew_1_12_12'],3);document.getElementById('xlew_1_12_13').value=eedisplayFloatND(co['xlew_1_12_13'],3);document.getElementById('xlew_1_12_14').value=eedisplayFloatND(co['xlew_1_12_14'],3);document.getElementById('xlew_1_13_3').value=eeisnumber(co['xlew_1_13_3'])?eedisplayFloat(co['xlew_1_13_3']):co['xlew_1_13_3'];document.getElementById('xlew_1_13_4').value=co['xlew_1_13_4'];document.getElementById('xlew_1_13_7').value=co['xlew_1_13_7'];document.getElementById('xlew_1_14_3').value=eeisnumber(co['xlew_1_14_3'])?eedisplayFloat(co['xlew_1_14_3']):co['xlew_1_14_3'];document.getElementById('xlew_1_14_4').value=co['xlew_1_14_4'];document.getElementById('xlew_1_14_7').value=co['xlew_1_14_7'];document.getElementById('xlew_1_14_10').value=eeisnumber(co['xlew_1_14_10'])?eedisplayFloat(co['xlew_1_14_10']):co['xlew_1_14_10'];
+document.getElementById('xlew_1_15_3').value=eeisnumber(co['xlew_1_15_3'])?eedisplayFloat(co['xlew_1_15_3']):co['xlew_1_15_3'];document.getElementById('xlew_1_15_4').value=co['xlew_1_15_4'];document.getElementById('xlew_1_15_7').value=co['xlew_1_15_7'];document.getElementById('xlew_1_15_10').value=eedisplayFloat(co['xlew_1_15_10']);document.getElementById('xlew_1_16_7').value=co['xlew_1_16_7'];document.getElementById('xlew_1_18_14').value=eedisplayFloat(co['xlew_1_18_14']);document.getElementById('xlew_1_19_7').value=co['xlew_1_19_7'];document.getElementById('xlew_1_19_14').value=eeisnumber(co['xlew_1_19_14'])?eedisplayFloat(co['xlew_1_19_14']):co['xlew_1_19_14'];
+};};
+var arr3xBD191BD205=new Array(15);for(var ii=0;ii<15;ii++){arr3xBD191BD205[ii]=new Array(1);for(var jj=0;jj<1;jj++){arr3xBD191BD205[ii][jj]=0}};function calc(data){var c1O19=data['xlew_1_19_15'];var c1O18=data['xlew_1_18_15'];var c2M7=(0.770759609882709);var c2N7=(0.225212605265301);var c2O7=(0.00507911768717228);var c2D8=(10);var c2E8=(2);var c2M8=(0.00934808840036036);var c2N8=(-0.00915264637738158);var c2O8=(-0.000306002101311064);var c2M9=(0.00731983578359427);var c2N9=(-0.00716579963061057);var c2O9=(-0.000153313359087498);var c2D10=(0.2);var c2D11=(0.3);var c2D12=(0.3);var c2D13=(0.2);var c2P15=(0);var c2M22=(0.7673);var c2N22=(0.1483);var c2O22=(0.0648);var c2P22=(0.0197);var c1C4=(((((11)<(c1O18)))?(12):("")));var c1D4=(((((c1O18)>(11)))?("▄▄▄▄"):("")));var c1G4=(((((c1O18)==(12)))?("L <──────  █████  ──────> D"):("")));var c1C5=(((((10)<(c1O18)))?(11):("")));var c1D5=(((((c1O18)>(10)))?("▄▄▄▄"):("")));var c1G5=(((((c1O18)==(11)))?("L <──────  █████  ────────> D"):("")));var c1C6=(((((9)<(c1O18)))?(10):("")));var c1D6=(((((c1O18)>(9)))?("▄▄▄▄"):("")));var c1G6=(((((c1O18)==(10)))?("L <──────  █████  ────────> D"):("")));var c1C7=(((((8)<(c1O18)))?(9):("")));var c1D7=(((((c1O18)>(8)))?("▄▄▄▄"):("")));var c1G7=(((((c1O18)==(9)))?("L <──────  █████  ────────> D"):("")));
+ var c1K7=(c2D8);var c1L7=(c2E8);var c1C8=(((((7)<(c1O18)))?(8):("")));var c1D8=(((((c1O18)>(7)))?("▄▄▄▄"):("")));var c1G8=(((((c1O18)==(8)))?("L <──────  █████  ────────> D"):("")));var c1C9=(((((6)<(c1O18)))?(7):("")));var c1D9=(((((c1O18)>(6)))?("▄▄▄▄"):("")));var c1G9=(((((c1O18)==(7)))?("L <──────  █████  ────────> D"):("")));var c1K9=(c2D10);var c1C10=(((((5)<(c1O18)))?(6):("")));var c1D10=(((((c1O18)>(5)))?("▄▄▄▄"):("")));var c1G10=(((((c1O18)==(6)))?("L <──────  █████  ────────> D"):("")));var c1K10=(c2D11);var c1C11=(((((4)<(c1O18)))?(5):("")));var c1D11=(((((c1O18)>(4)))?("▄▄▄▄"):("")));var c1G11=(((((c1O18)==(5)))?("L <──────  █████  ────────> D"):("")));var c1K11=(c2D12);var c1C12=(((((3)<(c1O18)))?(4):("")));var c1D12=(((((c1O18)>(3)))?("▄▄▄▄"):("")));var c1G12=(((((c1O18)==(4)))?("L <──────  █████  ────────> D"):("")));var c1K12=(c2D13);var c1C13=(((((2)<(c1O18)))?(3):("")));var c1D13=(((((c1O18)>(2)))?("▄▄▄▄"):("")));var c1G13=(((((c1O18)==(3)))?("L <──────  █████  ────────> D"):("")));var c1C14=(((((1)<(c1O18)))?(2):("")));var c1D14=(((((c1O18)>(1)))?("▄▄▄▄"):("")));var c1G14=(((((c1O18)==(2)))?("L <──────  █████  ────────> D"):("")));var c1C15=(((((0)<(c1O18)))?(1):("")));var c1D15=(((((c1O18)>(0)))?("▄▄▄▄"):("")));var c1G15=(((((c1O18)==(1)))?("L <──────  █████  ────────> D"):("")));
+ var c1J15=(c1O18);var c1G16=(((((c1O18)==(0)))?("  ────────────────────> D"):("")));var c1N18=(c1O18);var c1G19=(((((c1O18)==(0)))?("Flash drum"):("Distillation column")));var c1N19=(((c1O19=="")?0:c1O19));var c2M12=(c1O18);var c2N12=(c1O18);var c2O12=(c1O18);var c2P12=(c1O18);var c2M13=(v2n(c1O19));var c2N13=(v2n(c1O19));var c2O13=(v2n(c1O19));var c2M15=(((((c2M7)+(((c2M12)*(c2M8)))))+(((c2M13)*(c2M9)))));var c2N15=(((((c2N7)+(((c2N12)*(c2N8)))))+(((c2N13)*(c2N9)))));var c2O15=(((((c2O7)+(((c2O12)*(c2O8)))))+(((c2O13)*(c2O9)))));var c2P19=(((((c2P15)>(1)))?(1):(c2P15)));var c1J14=(((((c1J15)==(0)))?("-"):(((c1O19=="")?0:c1O19))));var c2M19=(((((c2M15)>(1)))?(1):(c2M15)));var c2N19=(((((c2N15)>(1)))?(1):(c2N15)));var c2O19=(((((c2O15)>(1)))?(1):(c2O15)));var c2P20=(((((c2P19)<(0)))?(0):(c2P19)));var c2P24=(((((c2P12)<(1)))?(c2P22):(c2P20)));var c2M31=(((c1K9)*(c1K7)));var c2N31=(((c1K10)*(c1K7)));var c2O31=(((c1K11)*(c1K7)));var c2P31=(((c1K12)*(c1K7)));var c1N7=(((v2n(c1J14))*(c1L7)));var c1L12=(c2P24);var c2M20=(((((c2M19)<(0)))?(0):(c2M19)));var c2N20=(((((c2N19)<(0)))?(0):(c2N19)));var c2O20=(((((c2O19)<(0)))?(0):(c2O19)));var c2M24=(((((c2M12)<(1)))?(c2M22):(c2M20)));var c2N24=(((((c2N12)<(1)))?(c2N22):(c2N20)));var c2O24=(((((c2O12)<(1)))?(c2O22):(c2O20)));
+ var c2M32=(((((c2M31)-(((c2M24)*(2)))))/(8)));var c2N32=(((((c2N31)-(((c2N24)*(2)))))/(8)));var c2O32=(((((c2O31)-(((c2O24)*(2)))))/(8)));var c2P32=(((((c2P31)-(((c2P24)*(2)))))/(8)));var c1L9=(c2M24);var c1M9=(c2M32);var c1L10=(c2N24);var c1M10=(c2N32);var c1L11=(c2O24);var c1M11=(c2O32);var c1M12=(c2P32);var c1N12=(c1L12);var c1N9=(c1L9);var c1N10=(c1L10);var c1N11=(c1L11);data['xlew_1_19_14']=c1N19;data['xlew_1_19_7']=c1G19;data['xlew_1_18_14']=c1N18;data['xlew_1_16_7']=c1G16;data['xlew_1_15_10']=c1J15;data['xlew_1_15_7']=c1G15;data['xlew_1_15_4']=c1D15;data['xlew_1_15_3']=c1C15;data['xlew_1_14_10']=c1J14;data['xlew_1_14_7']=c1G14;data['xlew_1_14_4']=c1D14;data['xlew_1_14_3']=c1C14;data['xlew_1_13_7']=c1G13;data['xlew_1_13_4']=c1D13;data['xlew_1_13_3']=c1C13;data['xlew_1_12_14']=c1N12;data['xlew_1_12_13']=c1M12;data['xlew_1_12_12']=c1L12;data['xlew_1_12_11']=c1K12;data['xlew_1_12_7']=c1G12;data['xlew_1_12_4']=c1D12;data['xlew_1_12_3']=c1C12;data['xlew_1_11_14']=c1N11;data['xlew_1_11_13']=c1M11;data['xlew_1_11_12']=c1L11;data['xlew_1_11_11']=c1K11;data['xlew_1_11_7']=c1G11;data['xlew_1_11_4']=c1D11;data['xlew_1_11_3']=c1C11;data['xlew_1_10_14']=c1N10;data['xlew_1_10_13']=c1M10;data['xlew_1_10_12']=c1L10;data['xlew_1_10_11']=c1K10;data['xlew_1_10_7']=c1G10;
+ data['xlew_1_10_4']=c1D10;data['xlew_1_10_3']=c1C10;data['xlew_1_9_14']=c1N9;data['xlew_1_9_13']=c1M9;data['xlew_1_9_12']=c1L9;data['xlew_1_9_11']=c1K9;data['xlew_1_9_7']=c1G9;data['xlew_1_9_4']=c1D9;data['xlew_1_9_3']=c1C9;data['xlew_1_8_7']=c1G8;data['xlew_1_8_4']=c1D8;data['xlew_1_8_3']=c1C8;data['xlew_1_7_14']=c1N7;data['xlew_1_7_12']=c1L7;data['xlew_1_7_11']=c1K7;data['xlew_1_7_7']=c1G7;data['xlew_1_7_4']=c1D7;data['xlew_1_7_3']=c1C7;data['xlew_1_6_7']=c1G6;data['xlew_1_6_4']=c1D6;data['xlew_1_6_3']=c1C6;data['xlew_1_5_7']=c1G5;data['xlew_1_5_4']=c1D5;data['xlew_1_5_3']=c1C5;data['xlew_1_4_7']=c1G4;data['xlew_1_4_4']=c1D4;data['xlew_1_4_3']=c1C4;};
+function postcode() {
+};
+function TriggerOnchange(hiddenId)
+{
+    var e = jQuery.Event('change');
+    $('#'+hiddenId).trigger(e);
+}
+var eeisus=0;var eetrue="TRUE";var eefalse="FALSE";var eedec=",";var eeth=" ";var eedecreg=new RegExp(",","g");var eethreg=new RegExp(" ","g");var eecurrencyreg=new RegExp("kr","g");var eepercentreg=new RegExp("%","g");
+function myIsNaN(x){return(isNaN(x)||(typeof x=='number'&&!isFinite(x)));};
 
-        <div class="hint">
-          Modellen löser driftpunkten genom att hitta skärningen mellan pumpkurva och systemkurva.
-        </div>
-      </section>
+function round(n,nd){if(isFinite(n)&&isFinite(nd)){var sign_n=(n<0)?-1:1;var abs_n=Math.abs(n);var factor=Math.pow(10,nd);return sign_n*Math.round(abs_n*factor)/factor;}else{return NaN;}};
 
-      <section class="card results">
-        <div class="card-head">
-          <h2>Resultat</h2>
-          <span id="statusPill" class="pill ok">Inom område</span>
-        </div>
-        <div class="kpis">
-          <article>
-            <span>Flöde</span>
-            <strong id="flowValue">-</strong>
-            <small>m³/h</small>
-          </article>
-          <article>
-            <span>Lyfthöjd</span>
-            <strong id="headValue">-</strong>
-            <small>mVP</small>
-          </article>
-          <article>
-            <span>Effekt</span>
-            <strong id="powerValue">-</strong>
-            <small>kW</small>
-          </article>
-        </div>
+function s2n(str){str=String(str).replace(eedecreg,".");str=str.replace(eethreg,"");str=str.replace(eecurrencyreg,"");var res=parseFloat(str);if(myIsNaN(res))res=0;if(str.search(eepercentreg)>=0)res=res/100;return res;}
 
-        <div class="curve-meta">
-          <div><span>Pumpkurva</span><code id="pumpEquation"></code></div>
-          <div><span>Systemkurva</span><code id="systemEquation"></code></div>
-        </div>
-      </section>
+function b2s(b){return b?eetrue:eefalse;};
 
-      <section class="card chart-card">
-        <div class="card-head">
-          <h2>Kurvdiagram</h2>
-          <p>Pumpkurva, systemkurva och beräknad driftpunkt.</p>
-        </div>
-        <svg id="chart" viewBox="0 0 760 440" role="img" aria-label="Diagram över pumpkurva och systemkurva"></svg>
-        <div class="legend">
-          <span><i class="legend-line pump"></i>Pumpkurva</span>
-          <span><i class="legend-line system"></i>Systemkurva</span>
-          <span><i class="legend-dot"></i>Driftpunkt</span>
-        </div>
-      </section>
+function v2n(v){switch(typeof v){case "number":return v;case "string":return s2n(v);case "boolean":return v?1:0;case "object":if(v.constructor==Number){return v;};if(v.constructor==String){return s2n(v);};if(v.constructor==Boolean){return v?1:0;};return Number.NaN;default:return Number.NaN;}};
 
-      <section class="card explain">
-        <div class="card-head">
-          <h2>Så är modellen uppbyggd</h2>
-        </div>
-        <ul>
-          <li>Pumpkurvan beräknas som ett kubiskt polynom baserat på pumphjulsdiametern.</li>
-          <li>Systemkurvan beräknas som ett andragradspolynom baserat på statisk höjd och utloppsdiameter.</li>
-          <li>Driftpunkten beräknas som den positiva rot där kurvorna skär varandra inom modellens giltiga område.</li>
-        </ul>
-      </section>
-    </main>
-  </div>
+function eeparseFloat(str){str=String(str).replace(eedecreg,".");var res=parseFloat(str);if(isNaN(res)){return 0;}else{return res;}};
 
-  <script src="script.js"></script>
-</body>
+var near0RegExp=new RegExp("[.](.*0000000|.*9999999)");function eedisplayFloat(x){if(myIsNaN(x)){return Number.NaN;}else{var str=String(x);if(near0RegExp.test(str)){x=round(x,8);str=String(x);}return str.replace(/\./g,eedec);}};
+
+function eedisplayFloatV(x){if(x=="")return x;if(isFinite(x)){return eedisplayFloat(x);}else{return x}};
+
+function eedisplayFloatND(x,nd){if(myIsNaN(x)){return Number.NaN;}else{var res=round(x,nd);if(nd>0){var str=String(res);if(str.indexOf('e')!=-1)return str;if(str.indexOf('E')!=-1)return str;var parts=str.split('.');if(parts.length<2){var decimals=('00000000000000').substring(0,nd);return(parts[0]).toString()+eedec+decimals;}else{var decimals=((parts[1]).toString()+'00000000000000').substring(0,nd);return(parts[0]).toString()+eedec+decimals;}}else{return res;}}};
+
+var eeparseFloatVreg=new RegExp("^ *-?[0-9.]+ *$");function eeparseFloatV(str){if(str=="")return str;str=String(str).replace(eedecreg,".");if(!eeparseFloatVreg.test(str)){return str;};var res=parseFloat(str);if(isNaN(res)){return str;}else{return res;}};
+
+function eeisnumber(v){if((v==null)||isNaN(v)||v==Number.NEGATIVE_INFINITY||v==Number.POSITIVE_INFINITY){return false;}else{switch(typeof v){case "number":return true;case "object":return v.constructor==Number;default:return false;}}};
+function eequerystring(){
+    var variable,key,value,ii,querystring,variables;querystring=document.location.search;
+    if(querystring.length>0){
+        variables=querystring.substring(1).split('&');
+        for(ii=0;ii<variables.length;ii++){
+            variable=variables[ii].split('=');
+            key=unescape(variable[0])
+            value=unescape(variable[1]);
+            if(document.formc[key]!=null)
+                document.formc[key].value=value;
+        }
+    }
+}
+      function LoadFromQueryString(){
+    eequerystring();
+        };
+function navigate(e){var t=e.keyCode|e.which;if(t!=13&&t!=40&&t!=38)return;var n=$(e.target||e.srcElement);if(n.is("textarea"))return;var r=parseInt(n.attr("data-sheet"),10);var i=parseInt(n.attr("data-row"),10);var s=parseInt(n.attr("data-col"),10);var o=false;var u=$("#sheet-"+r+"");var a='input:not(":hidden,:button,[readonly=readonly],:disabled"),select,a.ui-slider-handle,textarea';var f=i+1;var l=i-1;var c=f;var h=l;while(t==40&&f<=c||t==38&&l>=h){var p=u.find(a).filter("[data-sheet="+r+"][data-row="+(t==38?l:f)+"][data-col="+s+"]");if(p.length>0){p[0].focus();o=true;break}else{var d;if(u.data("col"+s)==undefined){d=u.find(a).filter("[data-sheet="+r+"][data-col="+s+"]").map(function(){return parseInt($(this).attr("data-row"),10)}).toArray();u.data("col"+s,d)}else{d=u.data("col"+s)}c=d[d.length-1];h=d[0];var v="indexOf"in Array.prototype?d.indexOf(i):$.inArray(i,d);if(t==40&&i<c){f=d[v+1]}else if(t==38&&i>h){l=d[v-1]}else{break}}}if(!o){var m;if(t==38)m=parseInt(n.attr("tabindex"),10)-1;else m=parseInt(n.attr("tabindex"),10)+1;var g=u.find(a).filter("[data-sheet][data-row][data-col][tabindex="+m+"]");if(g.length>0){ if(g.is(':radio')) g = g.filter(':checked');
+            if(g.length > 0) g.focus();}else{u.find(a).filter("[data-sheet][data-row][data-col][tabindex]:first").focus()}}e.preventDefault?e.preventDefault():e.returnValue=false}
+var ssccf1n = function(op,id,css,data1){	
+	                switch(op)
+	                {
+                        
+                    case 'image':                               
+                        $('#' + id).attr('src',$('#'+data1).attr('src'));
+                    break;
+      		
+	                }
+                };                          
+                var ssccf4n = function(op,id,colors,data1,data2,data3,data4){
+                    switch(op)
+                    {
+                           
+                    }
+                };
+
+
+		function resetSlider(inputId,sliderId,val){
+			$('#'+inputId).val(val);
+			$('#'+sliderId).slider('value',val);
+            $('#'+sliderId).find('a').attr('title', 'slider value='+$('#'+sliderId).slider('option','value'));
+		}
+
+  </script>
 </html>
